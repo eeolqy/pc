@@ -10,7 +10,7 @@ module.exports = {
     env: require('./prod.env'),
     pc: path.resolve(__dirname, '../dist/pc.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory:'static',
     assetsPublicPath: '/pc/dist/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
