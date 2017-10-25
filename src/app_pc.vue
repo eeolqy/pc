@@ -1,5 +1,12 @@
+<style lang="less">
+	.app{
+		width:100%;
+		height:100%;
+		position:relative;
+	}
+</style>
 <template>
-    <div id="app">
+    <div class="app">
       <router-view></router-view>
     </div>
 </template>
@@ -12,7 +19,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
