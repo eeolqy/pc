@@ -22,7 +22,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src'),
+    // 'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
+    // 'ztree': path.resolve(__dirname, '../src/directives')
+    '@': resolve('src')
     }
   },
   module: {
@@ -67,6 +69,10 @@ module.exports = {
       new webpack.DllReferencePlugin({
         context: path.resolve(__dirname, '..'),
         manifest: require('../static/vendor/vendor-manifest.json')
+      }),
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
       })
   ]
 }
