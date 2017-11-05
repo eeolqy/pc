@@ -6,6 +6,7 @@
     float: left;
     margin: 5px;
     border: none;
+    -webkit-overflow-scrolling: touch;
 }
 .scrollbar{
     width: 30px;
