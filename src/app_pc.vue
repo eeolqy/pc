@@ -10,8 +10,8 @@
 <!--         <ul id="treeDemo" class="ztree"></ul>
         <h1 @click="initTree">Tree</h1> -->
 
-      	<!-- <router-view></router-view> -->
-        <VueQuillEditor v-model="content"></VueQuillEditor>
+      	<router-view></router-view>
+        <!-- <VueQuillEditor v-model="content"></VueQuillEditor> -->
         {{content}}
     </div>
 </template>

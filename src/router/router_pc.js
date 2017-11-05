@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/templates/pc/index'
+import Tree  from '@/templates/pc/tree'
 import A from '@/templates/a'
 import B from '@/templates/b'
 Vue.use(Router)
@@ -12,7 +13,7 @@ export default new Router({
       	component: Index,
       	children:[{
       		path: '/',
-      		component: A,
+      		component: Tree,
       	},{
       		path: '/a',
       		component: A,

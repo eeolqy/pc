@@ -42,16 +42,17 @@
 				{{son}}
 			</div>
 		</div> -->
-		<ul>
-			<li v-for="item in items" :class="{a:item.isFinish}">333</li>
-		</ul>
+		<el-color-picker v-model="color" show-alpha @change="colorChange" @active-change="colorActiveChange"></el-color-picker>
+		<vue-qr ref="qr" :dotScale="1" :logoScale="1" :autoColor="true" text="www.baidu.com" binarizeThreshold="255" :whiteMargin="true" :binarizeThreshold="255" size="300" ></vue-qr>
 	</div>
 </template>
 <script type="text/javascript">
 import Item from '../components/tree_item.vue'
+import VueQr from 'vue-qr'
 	export default{
 		data(){
 			return {
+				color:'#409EFF',
 				items:[{
 					isFinish:true
 				},{
@@ -142,12 +143,14 @@ import Item from '../components/tree_item.vue'
 			}
 		},
 		components:{
-			Item
+			Item,
+			VueQr
 		},
 		created(){
         	this.format([{a:1,children:{
         		a:'1-1'
         	}},{a:2}])
+        	console.log(this.$refs)
     	},
     	methods:{
     		format(a){
@@ -155,6 +158,12 @@ import Item from '../components/tree_item.vue'
 
     			}
     		},
+    		colorChange(color){
+    			console.log('colorChange',color)
+    		},
+    		colorActiveChange(color){
+    			console.log('activeColor',color)
+    		}
     	}
 	}
 </script>

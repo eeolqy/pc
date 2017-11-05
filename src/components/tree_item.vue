@@ -6,6 +6,7 @@
       @dblclick="changeType">
       <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
       {{model.name}}
+      33
     </div>
      <el-collapse-transition>
     <ul v-show="open" v-if="isFolder">
@@ -49,7 +50,7 @@
     computed: {
       isFolder: function () {
         console.log(this.model)
-        return this.model.children &&
+        return this.model.hasSubFolder &&
           this.model.children.length
       }
     },
