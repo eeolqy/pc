@@ -4,6 +4,8 @@ import Index from '@/templates/pc/index'
 import Tree  from '@/templates/pc/tree'
 import A from '@/templates/a'
 import B from '@/templates/b'
+import TableSort from '@/templates/table_sort.vue'
+import Shop      from '@/templates/shop.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -12,9 +14,15 @@ export default new Router({
       	path: '/',
       	component: Index,
       	children:[{
-      		path: '/',
+          path: '/',
+          component: Shop,
+        },{
+      		path: '/tree',
       		component: Tree,
       	},{
+          path: '/tablesort',
+          component: TableSort,
+        },{
       		path: '/a',
       		component: A,
       	},
