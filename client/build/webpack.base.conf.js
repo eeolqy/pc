@@ -24,6 +24,7 @@ module.exports = {
     alias: {
     // 'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
     // 'ztree': path.resolve(__dirname, '../src/directives')
+    'swiper$': 'swiper/dist/js/swiper.esm.bundle.js',
     '@': resolve('src')
     }
   },
@@ -37,6 +38,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         include: [resolve('src'), resolve('test')]
       },
       {

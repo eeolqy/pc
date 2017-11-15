@@ -21,7 +21,10 @@ import JQuery from 'jquery'
 import zTree  from 'ztree'
 import 'ztree/css/zTreeStyle/zTreeStyle.css'
 import VueQuillEditor from 'vue-quill-editor'
-console.log(VueQuillEditor.quillEditor)
+//console.log(VueQuillEditor.quillEditor)
+import Swiper from '@/assets/lib/swiper/js/swiper.esm.bundle.js'
+// import Swiper from 'swiper'
+console.dir(new Swiper())
 export default {
     name: 'app',
     data(){

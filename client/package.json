@@ -52,6 +52,7 @@
     "shelljs": "^0.7.6",
     "source-list-map": "^2.0.0",
     "string-width": "^2.1.1",
+    "swiper": "^4.0.6",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.0.4",
     "vue-style-loader": "^3.0.1",

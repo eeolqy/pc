@@ -1,11 +1,12 @@
 import Vue 			from 'vue'
 import ElementUI 	from 'element-ui'
+// import Swiper       from 'swiper'
 import App 			from '@/app_pc'
+
 import router 		from '@/router/router_pc'
 Vue.use(ElementUI)
 import 				'element-ui/lib/theme-chalk/index.css'
 import 				'@/assets/less/commom.less'
-
 new Vue({
   	el: '#pc',
   	router,
