@@ -12,7 +12,7 @@ const Detail = () => import(/* webpackChunkName: "register" */ '@/templates/deta
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     // {
     //   path: '/',
