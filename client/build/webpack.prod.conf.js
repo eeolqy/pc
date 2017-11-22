@@ -11,7 +11,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 const env = require('../config/prod.env')
-
+console.log('../../')
+console.log(path.resolve(__dirname, '../static'))
+console.log(config.build.assetsSubDirectory)
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
