@@ -2,15 +2,16 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
-const webpack = require('webpack')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
-    return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir)
 }
+
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
-    main_pc: './src/main_pc.js',
+    app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -22,14 +23,22 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-    // 'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
-    // 'ztree': path.resolve(__dirname, '../src/directives')
-    'swiper$': 'swiper/dist/js/swiper.esm.bundle.js',
-    '@': resolve('src')
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
     }
   },
   module: {
     rules: [
+      ...(config.dev.useEslint? [{
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: !config.dev.showEslintErrorsInOverlay
+        }
+      }] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -38,7 +47,6 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
         include: [resolve('src'), resolve('test')]
       },
       {
@@ -66,15 +74,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [
-      new webpack.DllReferencePlugin({
-        context: path.resolve(__dirname, '..'),
-        manifest: require('../static/vendor/vendor-manifest.json')
-      }),
-      new webpack.ProvidePlugin({
-          $: "jquery",
-          jQuery: "jquery"
-      })
-  ]
+  }
 }
