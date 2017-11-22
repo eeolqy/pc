@@ -11,6 +11,7 @@
 		.list_box{
 			flex:1;
 			overflow-y:auto;
+			-webkit-overflow-scrolling : touch;
 			.list_item{
 				height:60px;
 			}
