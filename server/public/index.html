@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>文件上传</h1>
+	<form enctype='multipart/form-data' action="/api/upload" method="post">
+		<input name="file" type="file">
+		<input type="submit" value="Submit" />
+	</form>
+</body>
+<script>
+	console.dir(fetch)
+	// fetch('/api/upload',{
+	// 	method:'get',
+	// }).then((response)=>{
+	// 	return response.text()
+	// }).then((result)=>{
+	// 	console.log(result)
+	// })
+	// fetch('/api/upload',{
+	// 	method:'post',
+	// }).then((response)=>{
+	// 	return response.text()
+	// }).then((result)=>{
+	// 	console.log(result)
+	// })
+</script>
+</html>

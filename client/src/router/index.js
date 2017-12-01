@@ -6,7 +6,7 @@ const B = () => import(/* webpackChunkName: "index" */ '@/templates/routerb.vue'
 const C = () => import(/* webpackChunkName: "login" */ '@/templates/routerc.vue')
 const D = () => import(/* webpackChunkName: "login" */ '@/templates/routerd.vue')
 const E = () => import(/* webpackChunkName: "register" */ '@/templates/routere.vue')
-const F = () => import(/* webpackChunkName: "register" */ '@/templates/routerf.vue')
+const Upload = () => import(/* webpackChunkName: "register" */ '@/templates/upload.vue')
 const List = () => import(/* webpackChunkName: "register" */ '@/templates/list.vue')
 const Detail = () => import(/* webpackChunkName: "register" */ '@/templates/detail.vue')
 Vue.use(Router)
@@ -48,7 +48,7 @@ export default new Router({
     {
       path: '/f',
       name: 'routerf',
-      component: F
+      component: Upload
     },
     {
       path: '/',
@@ -59,6 +59,11 @@ export default new Router({
       path: '/detail',
       name: 'detail',
       component: Detail
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: Upload
     }
   ],
   scrollBehavior (to, from, savedPosition) {
