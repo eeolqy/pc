@@ -20,11 +20,11 @@ var router  = express.Router();
 //   res.send('Upload /');
 // });
 // 定义 about 页面的路由
-router.post('/upload',upload.single('file'),function(req, res) {
+router.post('/',upload.single('file'),function(req, res) {
 	//console.log(req)
   res.send('Upload /upload');
 });
-router.get('/upload', function(req, res) {
+router.get('/', function(req, res) {
 	// console.log(res.status(500).send('500'))
   	res.send("{'name':'lqy'}");
 });

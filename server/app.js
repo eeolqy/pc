@@ -1,8 +1,14 @@
-var express = require('express');
-var app     = express();
-var birds   = require('./birds');
-var upload  = require('./upload')
-
+var express       = require('express');
+var cookieSession = require('cookie-session')
+var bodyParser    = require('body-parser')
+var app           = express();
+var birds         = require('./birds');
+var upload        = require('./upload') 
+var user          = require('./user')
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 app.use(function timeLog(req, res, next) {
   console.log('Time: upload', Date.now());
   next();
@@ -72,10 +78,26 @@ var options = {
     res.set('x-timestamp', Date.now());
   }
 }
-
+app.use(cookieSession({
+    name: 'session',
+    keys: ['key1', 'key2'],
+    secret:'love',
+    cookie:{
+        maxAge : 1*60*1000
+    }
+}))
+app.use(function(req,res,next){
+    console.log(req.session)
+    next()
+})
+app.post('/test',function(req,res){
+    console.log(req)
+    res.send('test success')
+})
 app.use(express.static('public'));
 app.use(express.static('upload'));
 app.use('/birds', birds);
-app.use('/api', upload);
+app.use('/upload',   upload);
+app.use('/user',  user);
 app.listen(3000);
 console.log('listen3000...')
