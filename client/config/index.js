@@ -11,6 +11,27 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+        '/auth': {
+            target: 'http://localhost:3000',
+            changeOrigin:true,
+            pathRewrite: {
+                '^/auth':'/auth'
+            }
+        },
+        '/login': {
+            target: 'http://localhost:3000',
+            changeOrigin:true,
+            pathRewrite: {
+                '^/login': '/login'
+            }
+        },
+        '/getUserInfo': {
+            target: 'http://localhost:3000',
+            changeOrigin:true,
+            pathRewrite: {
+                '^/getUserInfo': '/getUserInfo'
+            }
+        },
         '/api': {
             target: 'http://localhost:3000',
             changeOrigin:true,
@@ -31,7 +52,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
