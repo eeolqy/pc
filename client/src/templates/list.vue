@@ -22,10 +22,17 @@
 	<div class="list">
 		<div class="header_box">
 		</div>
-    <audio 
-    style="width:200px;height:100px;"
+    <audio
+    ref="audio1"
+	:autoplay="autoplay1"
     controls="controls"
-    src="http://m10.music.126.net/20171207203912/3ba506ff56ff7578a231725d6686c13b/ymusic/f5fa/c51a/ce54/b55c66bbefeb5bb2f2d40558d3b0ab81.mp3">
+    src="http://www.runoob.com/try/demo_source/horse.mp3">
+</audio>
+    <audio
+    ref="audio2"
+	:autoplay="autoplay2"
+    controls="controls"
+    src="http://www.runoob.com/try/demo_source/horse.mp3">
 </audio>
     <el-button type="primary" @click="open">打开</el-button>
 		<!-- <div ref="scroll" @scroll="scrollList" class="list_box">
@@ -40,7 +47,9 @@
     name: 'list',
     data () {
       return {
-        list: []
+		list: [],
+		autoplay1:false,
+		autoplay2:false
       }
     },
     computed: {
@@ -52,7 +61,10 @@
     mounted () {
       // console.log('mounted', this.$refs.scroll)
       // this.$refs.scroll.scrollTop = this.$store.state.scrollTop
-      // console.log(this.$refs.scrollTop)
+	  // console.log(this.$refs.scrollTop)
+	  this.$refs.audio1.onended=()=>{
+		 this.$refs.audio2.play()
+	  }
     },
     created () {
       for (var i = 0; i < 100; i++) {
@@ -60,10 +72,13 @@
       }
     },
     methods: {
-      scrollList (event) {
-        // console.log(event.target.scrollTop)
-        this.$store.dispatch('changeScrollTopAction', event.target.scrollTop)
-      }
+		scrollList (event) {
+			// console.log(event.target.scrollTop)
+			this.$store.dispatch('changeScrollTopAction', event.target.scrollTop)
+		},
+		open(){
+			this.$refs.audio1.play()
+		}
     }
   }
 </script>
